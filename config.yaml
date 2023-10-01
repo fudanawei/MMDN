@@ -9,8 +9,8 @@ loss: binary_crossentropy
 # train_state: 0   # state: 0 for pretrain, 1 for update
 # update_step: 0  # step number for update, default: 0
 
-# sizeOfPretrain: 20000  # number of pre-training dataset: 是否可以减少到2w？
-# sizeOfBatch: 1000      # number of dataset for each update, default=1000: 是否可以减少到2000？ 
+# sizeOfPretrain: 20000  # number of pre-training dataset:
+# sizeOfBatch: 1000      # number of dataset for each update, default=1000:
 # sizeOfUpdateInvertal: 1000 # update interval, 10s * 100fps
 # initialDataLength: 0 # default: update_step * sizeOfUpdateInvertal
 
