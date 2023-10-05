@@ -49,7 +49,7 @@ def write_accuracies_to_xls(path, timepoint, accuracy_M1, accuracy_M2, accuracy_
     oldWb = xlrd.open_workbook(writepath)
     newWb = copy(oldWb)
     newWs = newWb.get_sheet(0)
-    newWs.write(timepoint, 0, accuracy_M1[1])  # mean(accuracy)
+    newWs.write(timepoint, 0, accuracy_M1[1])
     newWs.write(timepoint, 1, accuracy_M2[1])
     newWs.write(timepoint, 2, accuracy_M3[1])
     newWs.write(timepoint, 3, accuracy_Ensem[1])
@@ -65,7 +65,7 @@ def write_accuracies_to_xls(path, timepoint, accuracy_M1, accuracy_M2, accuracy_
 
 def save_diffimage(writepath, recimage, prefix):
     plt.clf()
-    outsize = np.sqrt(recimage.size).astype(np.int16)  # TODO: for 32x64 ??
+    outsize = np.sqrt(recimage.size).astype(np.int16)
     plt.imshow(recimage.reshape(outsize, -1), cmap="bwr")
     plt.colorbar()
     plt.savefig(os.path.join(writepath, 'avr_diff' + prefix + '.jpg'))
