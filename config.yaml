@@ -1,26 +1,4 @@
 # training parameters
-optimization: Adadelta
 lr_rate: 0.1
 batch_size: 128
 epochs: 150
-loss: binary_crossentropy
-
-# # training set
-# train_state: 0   # state: 0 for pretrain, 1 for update
-# update_step: 0  # step number for update, default: 0
-
-# sizeOfPretrain: 20000  # number of pre-training dataset:
-# sizeOfBatch: 1000      # number of dataset for each update, default=1000:
-# sizeOfUpdateInvertal: 1000 # update interval, 10s * 100fps
-# initialDataLength: 0 # default: update_step * sizeOfUpdateInvertal
-
-# # mode
-# flag_dynamic_learning: True
-# flag_multi_model: True
-# flag_rebuild: True
-
-# # pretrain model
-# use_model: pretrain
-
-# # input image
-# speckle_dim: 150

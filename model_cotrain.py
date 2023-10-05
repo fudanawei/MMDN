@@ -14,17 +14,6 @@ def c_evaluate(y_actual, y_predicted, graylevel=2):
 
     return accuracy, np.mean(accuracy), accuracy_diffimage
 
-# TODO: Confidence level --> regularization: TV minimization; discriminator; 
-def confidenceFactor_V2(arr, graylevel=2): 
-    W = []
-    for i in range(0, arr.shape[0]):
-        img = np.clip(arr[i], 0, 1) * (graylevel-1)
-        img_t = (0.5 + img).astype(np.uint8)
-        w = np.sum(1 - np.abs(img - img_t) * 2) / arr.shape[-1]  # range: 0-1        
-        W.append(w)
-    meanW = np.mean(W)
-    return W, meanW
-
 # return confidence level, 0.1~1.0
 def confidenceFactor(arr):
     median = 0.5
@@ -35,11 +24,8 @@ def confidenceFactor(arr):
     meanConf = np.mean(confList)
     return confList, meanConf
 
-# confidence based weight, TODO: check!!
+# confidence based weight
 def weightFactor(conf1, conf2, conf3):
-    # w1 = np.exp(10 * (2 - conf2 - conf3) / 3)
-    # w2 = np.exp(10 * (2 - conf1 - conf3) / 3)
-    # w3 = np.exp(10 * (2 - conf1 - conf2) / 3)
     w1 = np.exp(10 * (2 - conf2 - conf3) / (3 - conf1 - conf2 - conf3))
     w2 = np.exp(10 * (2 - conf1 - conf3) / (3 - conf1 - conf2 - conf3))
     w3 = np.exp(10 * (2 - conf1 - conf2) / (3 - conf1 - conf2 - conf3))
